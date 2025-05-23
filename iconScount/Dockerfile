@@ -32,6 +32,7 @@ COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
 ENV API_URL=https://your-api-url.com
 ENV API_KEY=your-api-key-here
 ENV MODE=production
+ENV APP_NAME="IconScout Proxy"
 ENV CACHE_EXPIRY=3600
 ENV DEBUG=false
 

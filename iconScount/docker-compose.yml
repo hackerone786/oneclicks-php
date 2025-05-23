@@ -10,6 +10,7 @@ services:
       - API_URL=${API_URL:-https://your-api-url.com}
       - API_KEY=${API_KEY:-your-api-key-here}
       - MODE=${MODE:-production}
+      - APP_NAME=${APP_NAME:-IconScout Proxy}
       # Optional environment variables
       - CACHE_EXPIRY=${CACHE_EXPIRY:-3600}
       - DEBUG=${DEBUG:-false}

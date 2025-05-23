@@ -3,7 +3,7 @@ function loadEnv($path = null) {
 	// echo $path;
 	// exit;
     // First, try to load from environment variables (Docker/system)
-    $required_vars = ['API_URL', 'API_KEY', 'MODE'];
+    $required_vars = ['API_URL', 'API_KEY', 'MODE', 'APP_NAME'];
     
     foreach ($required_vars as $var) {
         $value = getenv($var);
@@ -31,6 +31,10 @@ function loadEnv($path = null) {
             case 'MODE':
                 $_ENV[$var] = 'production';
                 putenv("$var=production");
+                break;
+            case 'APP_NAME':
+                $_ENV[$var] = 'IconScout Proxy';
+                putenv("$var=IconScout Proxy");
                 break;
         }
     }

@@ -51,6 +51,7 @@ This Docker setup allows you to run the IconScout proxy application in a contain
 | `API_URL` | The API endpoint URL | `https://your-api-url.com` |
 | `API_KEY` | Your API authentication key | `your-api-key-here` |
 | `MODE` | Application mode (production/development) | `production` |
+| `APP_NAME` | Application name shown in limit pages | `IconScout Proxy` |
 
 ### Optional Variables
 
