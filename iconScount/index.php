@@ -139,9 +139,10 @@ if (str_contains($requestUrl, "/download")) {
    
    check_user_limits($decryptedData['product'],$decryptedData['user_email']);  
    
-}else{
-	$response = curl_multi_getcontent($ch);
 }
+
+$response = curl_multi_getcontent($ch);
+
 
 if (str_contains($response, "download_url")) {
 	   update_user_limits($decryptedData['product'],$decryptedData['user_email']);
