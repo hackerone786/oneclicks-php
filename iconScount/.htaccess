@@ -1,0 +1,11 @@
+RewriteEngine On
+SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+<FilesMatch "\.(cache|env)$">
+   Deny from all
+</FilesMatch>

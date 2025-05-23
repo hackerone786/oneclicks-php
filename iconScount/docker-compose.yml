@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  iconscout-proxy:
+    build: .
+    container_name: iconscout-app
+    expose:
+      - 80
+    environment:
+      - API_URL=${API_URL:-https://your-api-url.com}
+      - API_KEY=${API_KEY:-your-api-key-here}
+      # Optional environment variables
+      - CACHE_EXPIRY=${CACHE_EXPIRY:-3600}
+      - DEBUG=${DEBUG:-false}
+    volumes:
+      - ./cache:/var/www/html/cache
+      - ./media:/var/www/html/media
+    restart: unless-stopped
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true
