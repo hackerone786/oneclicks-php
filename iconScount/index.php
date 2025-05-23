@@ -138,6 +138,7 @@ if (str_contains($requestUrl, ".json")) {
 if (str_contains($requestUrl, "/download")) {
    #stop user hrere if he has reached the limit
    check_user_limits($decryptedData['product'],$decryptedData['user_email']);  
+   exit;
 }
 $response = curl_multi_getcontent($ch);
 if (str_contains($response, "download_url")) {
