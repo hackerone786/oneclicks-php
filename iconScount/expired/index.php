@@ -3,76 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Session Expired</title>
+    <title>Session Expired - StealthWriter</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #f8f9fa;
             height: 100vh;
-            color: #333;
+            display: flex;
+            align-items: center;
         }
-
-        .container {
+        .expired-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 100%;
-            max-width: 500px;
         }
-
-        h1 {
-            font-size: 2.5rem;
-            color: #e74c3c;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #555;
-        }
-
-        .message {
+        .icon-container {
             background-color: #f8d7da;
             color: #721c24;
-            border: 1px solid #f5c6cb;
-            border-radius: 5px;
-            padding: 20px;
-            margin-top: 20px;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease;
+        .icon-container i {
+            font-size: 48px;
         }
-
-        .btn:hover {
-            background-color: #2980b9;
+        h1 {
+            color: #343a40;
+            margin-bottom: 20px;
         }
-
-        .footer {
-            font-size: 0.9rem;
-            margin-top: 40px;
-            color: #888;
+        p {
+            color: #6c757d;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        .btn-primary {
+            padding: 10px 20px;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="expired-container">
+            <div class="icon-container">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h1>Session Expired</h1>
+            <p>Your session has expired. Please access the tool again from the dashboard.</p>
+            <div class="d-grid gap-2 d-md-block">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt me-2"></i>Log In Again
+                </a>
+                <a href="javascript:history.back()" class="btn btn-outline-secondary ms-2">
+                    <i class="fas fa-arrow-left me-2"></i>Go Back
+                </a>
+            </div>
+        </div>
+    </div>
 
-<div class="container">
-    <h1>Session Expired</h1>
-    <p>Your session has expired, and its no longer valid.</p>
-    <div class="message">
-        <strong
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
