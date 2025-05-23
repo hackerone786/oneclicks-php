@@ -2,7 +2,7 @@
 
 // Check if the secret key is provided in the request
 if (isset($_POST['secret']) && $_POST['secret'] === 'an33zmdx5') {
-    $cache_path = 'cache/.cache';
+    $cache_path = __DIR__ . '/cache/.cache';
 
     // Check if the cache file exists
     if (file_exists($cache_path)) {

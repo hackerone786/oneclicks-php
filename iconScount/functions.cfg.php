@@ -90,7 +90,7 @@ function get_cookies_from_api_without_verify($prefix) {
     $api_url_full = $_ENV['API_URL'].'/oneclick/access_without_verify/' . $prefix;
 
     
-    $cache_path = 'cache/.cache';
+    $cache_path = __DIR__ . '/cache/.cache';
 
     // Check if cache exists and is not expired (1 hour old)
     if (file_exists($cache_path)) {
@@ -155,13 +155,26 @@ function get_cookies_from_api_without_verify($prefix) {
         // Convert cookies to a string and save to cache
         $cookieString = implode('; ', $cookiePairs);
 
-        // Ensure cache directory exists
-        if (!is_dir('cache')) {
-            mkdir('cache', 0777, true);
+        // Ensure cache directory exists with proper permissions
+        $cacheDir = __DIR__ . '/cache';
+        if (!is_dir($cacheDir)) {
+            if (!mkdir($cacheDir, 0777, true)) {
+                error_log("Failed to create cache directory: $cacheDir");
+                return $cookieString; // Return without caching
+            }
+        }
+        
+        // Ensure cache directory is writable
+        if (!is_writable($cacheDir)) {
+            error_log("Cache directory not writable: $cacheDir");
+            return $cookieString; // Return without caching
         }
 
-        // Save the cookie string to cache file
-        file_put_contents($cache_path, $cookieString);
+        // Save the cookie string to cache file with absolute path
+        $absoluteCachePath = $cacheDir . '/.cache';
+        if (file_put_contents($absoluteCachePath, $cookieString) === false) {
+            error_log("Failed to write cache file: $absoluteCachePath");
+        }
 
         return $cookieString;
 

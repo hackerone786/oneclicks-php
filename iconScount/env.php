@@ -3,7 +3,7 @@ function loadEnv($path = null) {
 	// echo $path;
 	// exit;
     // First, try to load from environment variables (Docker/system)
-    $required_vars = ['API_URL', 'API_KEY'];
+    $required_vars = ['API_URL', 'API_KEY', 'MODE'];
     
     foreach ($required_vars as $var) {
         $value = getenv($var);
@@ -27,6 +27,10 @@ function loadEnv($path = null) {
             case 'API_KEY':
                 $_ENV[$var] = 'your-api-key-here';
                 putenv("$var=your-api-key-here");
+                break;
+            case 'MODE':
+                $_ENV[$var] = 'production';
+                putenv("$var=production");
                 break;
         }
     }

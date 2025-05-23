@@ -16,7 +16,7 @@ WORKDIR /var/www/html
 # Copy application files
 COPY . /var/www/html/
 
-# Create required directories and set permissions
+# Create required directories with proper ownership and permissions
 RUN mkdir -p /var/www/html/cache \
     && mkdir -p /var/www/html/limit-reached \
     && mkdir -p /var/www/html/expired \
@@ -31,6 +31,7 @@ COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
 # Set default environment variables (can be overridden at runtime)
 ENV API_URL=https://your-api-url.com
 ENV API_KEY=your-api-key-here
+ENV MODE=production
 ENV CACHE_EXPIRY=3600
 ENV DEBUG=false
 

@@ -9,6 +9,7 @@ services:
     environment:
       - API_URL=${API_URL:-https://your-api-url.com}
       - API_KEY=${API_KEY:-your-api-key-here}
+      - MODE=${MODE:-production}
       # Optional environment variables
       - CACHE_EXPIRY=${CACHE_EXPIRY:-3600}
       - DEBUG=${DEBUG:-false}
